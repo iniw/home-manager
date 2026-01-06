@@ -231,6 +231,12 @@ in
         xdg.configFile."systemd/user/app-com.mitchellh.ghostty.service.d/overrides.conf".text = ''
           [Unit]
           X-SwitchMethod=keep-old
+          X-Reload-Triggers=${
+            toString (
+              lib.optional (cfg.settings != { }) config.xdg.configFile."ghostty/config".source
+              ++ lib.mapAttrsToList (n: v: config.xdg.configFile."ghostty/themes/${n}".source) cfg.themes
+            )
+          }
         '';
 
         dbus.packages = [ cfg.package ];
