@@ -29833,7 +29833,7 @@ boolean</p>
 string</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">if config.xdg.enable &amp;&amp; lib.versionAtLeast config.home.stateVersion &quot;26.05&quot; then
-  &quot;${config.xdg.configHome}/docker&quot;
+  &quot;$XDG_CONFIG_HOME/docker&quot;
 else
   &quot;.docker&quot;
 
@@ -97374,19 +97374,19 @@ package</p>
  </span>
 </dt>
 <dd>
-<p>Directory to store configuration and state. This also sets $COLIMA_HOME.</p>
+<p>Directory to store colima configuration. This also sets $COLIMA_HOME.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 string</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">if config.xdg.enable &amp;&amp; lib.versionAtLeast config.home.stateVersion &quot;26.05&quot; then
-  &quot;${config.xdg.dataHome}/colima&quot;
+  &quot;$XDG_CONFIG_HOME/colima&quot;
 else
   &quot;.colima&quot;
 
 </code></pre>
 
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">${config.xdg.dataHome}/colima
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">${config.xdg.configHome}/colima
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -97459,6 +97459,37 @@ package</p>
 package</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.docker
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/colima.nix" target="_top">
+&lt;home-manager/modules/services/colima.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.colima.limaHomeDir"></a><a class="term" href="options.xhtml#opt-services.colima.limaHomeDir"><code class="option">services.colima.limaHomeDir</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Directory to store lima files. This also sets $LIMA_HOME.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">if config.xdg.enable &amp;&amp; lib.versionAtLeast config.home.stateVersion &quot;26.05&quot; then
+  &quot;$XDG_DATA_HOME/lima&quot;
+else
+  &quot;.colima/_lima&quot;
+
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">${config.xdg.configHome}/colima/_lima
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
