@@ -97380,13 +97380,13 @@ package</p>
 string</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">if config.xdg.enable &amp;&amp; lib.versionAtLeast config.home.stateVersion &quot;26.05&quot; then
-  &quot;${config.xdg.configHome}/colima&quot;
+  &quot;${config.xdg.dataHome}/colima&quot;
 else
   &quot;.colima&quot;
 
 </code></pre>
 
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">${config.xdg.configHome}/colima
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">${config.xdg.dataHome}/colima
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -97512,8 +97512,10 @@ attribute set of (submodule)</p>
   default = {
     isActive = true;
     isService = true;
+    setDockerHost = lib.versionAtLeast config.home.stateVersion &quot;26.05&quot;;
   };
-}
+};
+
 </code></pre>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&#x27;&#x27;
@@ -97521,6 +97523,7 @@ attribute set of (submodule)</p>
     default = {
       isActive = true;
       isService = true;
+      setDockerHost = true;
     };
     rosetta = {
       isService = true;
