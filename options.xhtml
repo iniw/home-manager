@@ -32456,6 +32456,485 @@ strings concatenated with “\n”</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.firefox.profiles._name_.handlers"></a><a class="term" href="options.xhtml#opt-programs.firefox.profiles._name_.handlers"><code class="option">programs.firefox.profiles.&lt;name&gt;.handlers</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Declarative handlers configuration for MIME types and URL schemes.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+submodule</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox" target="_top">
+&lt;home-manager/modules/programs/firefox&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.firefox.profiles._name_.handlers.force"></a><a class="term" href="options.xhtml#opt-programs.firefox.profiles._name_.handlers.force"><code class="option">programs.firefox.profiles.&lt;name&gt;.handlers.force</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to force replace the existing handlers configuration.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox" target="_top">
+&lt;home-manager/modules/programs/firefox&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.firefox.profiles._name_.handlers.meta.maintainers"></a><a class="term" href="options.xhtml#opt-programs.firefox.profiles._name_.handlers.meta.maintainers"><code class="option">programs.firefox.profiles.&lt;name&gt;.handlers.meta.maintainers</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>List of maintainers of each module.
+This option should be defined at most once per module.</p><p>The option value is not a list of maintainers, but an attribute set that maps module file names to lists of maintainers.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of (maintainer)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[ lib.maintainers.alice lib.maintainers.bob ]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="file:///nix/store/2715qxhm1acrc11b3bvg632d8mk562n7-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/2715qxhm1acrc11b3bvg632d8mk562n7-source/modules/generic/meta-maintainers.nix
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.firefox.profiles._name_.handlers.mimeTypes"></a><a class="term" href="options.xhtml#opt-programs.firefox.profiles._name_.handlers.mimeTypes"><code class="option">programs.firefox.profiles.&lt;name&gt;.handlers.mimeTypes</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Attribute set mapping MIME types to their handler configurations.</p><p>For a configuration example, see <a class="link" href="https://github.com/mozilla-firefox/firefox/blob/c3797cdebac1316dd7168e995e3468c5a597e8d1/uriloader/exthandler/tests/unit/handlers.json"  target="_top">this file on Firefox’s source code</a>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  &quot;application/pdf&quot; = {
+    action = 2;
+    ask = false;
+    handlers = [
+      {
+        name = &quot;Okular&quot;;
+        path = &quot;${pkgs.okular}/bin/okular&quot;;
+      }
+    ];
+    extensions = [ &quot;pdf&quot; ];
+  };
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox" target="_top">
+&lt;home-manager/modules/programs/firefox&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.firefox.profiles._name_.handlers.mimeTypes._name_.action"></a><a class="term" href="options.xhtml#opt-programs.firefox.profiles._name_.handlers.mimeTypes._name_.action"><code class="option">programs.firefox.profiles.&lt;name&gt;.handlers.mimeTypes.&lt;name&gt;.action</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The action to take for this MIME type / URL scheme. Possible values:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>0: Save file</p></li><li class="listitem"><p>1: Always ask</p></li><li class="listitem"><p>2: Use helper app</p></li><li class="listitem"><p>3: Open in Firefox</p></li><li class="listitem"><p>4: Use system default</p></li></ul></div>
+
+<p><span class="emphasis"><em>Type:</em></span>
+one of 0, 1, 2, 3, 4</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">1
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox" target="_top">
+&lt;home-manager/modules/programs/firefox&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.firefox.profiles._name_.handlers.mimeTypes._name_.ask"></a><a class="term" href="options.xhtml#opt-programs.firefox.profiles._name_.handlers.mimeTypes._name_.ask"><code class="option">programs.firefox.profiles.&lt;name&gt;.handlers.mimeTypes.&lt;name&gt;.ask</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>If true, the user is asked what they want to do with the file.
+If false, the action is taken without user intervention.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox" target="_top">
+&lt;home-manager/modules/programs/firefox&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.firefox.profiles._name_.handlers.mimeTypes._name_.extensions"></a><a class="term" href="options.xhtml#opt-programs.firefox.profiles._name_.handlers.mimeTypes._name_.extensions"><code class="option">programs.firefox.profiles.&lt;name&gt;.handlers.mimeTypes.&lt;name&gt;.extensions</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>List of file extensions associated with this MIME type.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of string matching the pattern ^[^\.].+$</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
+  &quot;jpg&quot;
+  &quot;jpeg&quot;
+]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox" target="_top">
+&lt;home-manager/modules/programs/firefox&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.firefox.profiles._name_.handlers.mimeTypes._name_.handlers"></a><a class="term" href="options.xhtml#opt-programs.firefox.profiles._name_.handlers.mimeTypes._name_.handlers"><code class="option">programs.firefox.profiles.&lt;name&gt;.handlers.mimeTypes.&lt;name&gt;.handlers</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>An array of handlers with the first one being the default.
+If you don’t want to have a default handler, use an empty object for the first handler.
+Only valid when action is set to 2 (Use helper app).</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox" target="_top">
+&lt;home-manager/modules/programs/firefox&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.firefox.profiles._name_.handlers.mimeTypes._name_.handlers._.name"></a><a class="term" href="options.xhtml#opt-programs.firefox.profiles._name_.handlers.mimeTypes._name_.handlers._.name"><code class="option">programs.firefox.profiles.&lt;name&gt;.handlers.mimeTypes.&lt;name&gt;.handlers.*.name</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Display name of the handler.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox" target="_top">
+&lt;home-manager/modules/programs/firefox&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.firefox.profiles._name_.handlers.mimeTypes._name_.handlers._.path"></a><a class="term" href="options.xhtml#opt-programs.firefox.profiles._name_.handlers.mimeTypes._name_.handlers._.path"><code class="option">programs.firefox.profiles.&lt;name&gt;.handlers.mimeTypes.&lt;name&gt;.handlers.*.path</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Path to the executable to be used.</p><p>Only one of ‘path’ or ‘uriTemplate’ should be set.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox" target="_top">
+&lt;home-manager/modules/programs/firefox&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.firefox.profiles._name_.handlers.mimeTypes._name_.handlers._.uriTemplate"></a><a class="term" href="options.xhtml#opt-programs.firefox.profiles._name_.handlers.mimeTypes._name_.handlers._.uriTemplate"><code class="option">programs.firefox.profiles.&lt;name&gt;.handlers.mimeTypes.&lt;name&gt;.handlers.*.uriTemplate</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>URI for the application handler.</p><p>Only one of ‘path’ or ‘uriTemplate’ should be set.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox" target="_top">
+&lt;home-manager/modules/programs/firefox&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.firefox.profiles._name_.handlers.schemes"></a><a class="term" href="options.xhtml#opt-programs.firefox.profiles._name_.handlers.schemes"><code class="option">programs.firefox.profiles.&lt;name&gt;.handlers.schemes</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Attribute set mapping URL schemes to their handler configurations.</p><p>For a configuration example, see <a class="link" href="https://github.com/mozilla-firefox/firefox/blob/c3797cdebac1316dd7168e995e3468c5a597e8d1/uriloader/exthandler/tests/unit/handlers.json"  target="_top">this file on Firefox’s source code</a>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  mailto = {
+    action = 2;
+    ask = false;
+    handlers = [
+      {
+        name = &quot;Gmail&quot;;
+        uriTemplate = &quot;https://mail.google.com/mail/?extsrc=mailto&amp;url=%s&quot;;
+      }
+    ];
+  };
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox" target="_top">
+&lt;home-manager/modules/programs/firefox&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.firefox.profiles._name_.handlers.schemes._name_.action"></a><a class="term" href="options.xhtml#opt-programs.firefox.profiles._name_.handlers.schemes._name_.action"><code class="option">programs.firefox.profiles.&lt;name&gt;.handlers.schemes.&lt;name&gt;.action</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The action to take for this MIME type / URL scheme. Possible values:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>0: Save file</p></li><li class="listitem"><p>1: Always ask</p></li><li class="listitem"><p>2: Use helper app</p></li><li class="listitem"><p>3: Open in Firefox</p></li><li class="listitem"><p>4: Use system default</p></li></ul></div>
+
+<p><span class="emphasis"><em>Type:</em></span>
+one of 0, 1, 2, 3, 4</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">1
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox" target="_top">
+&lt;home-manager/modules/programs/firefox&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.firefox.profiles._name_.handlers.schemes._name_.ask"></a><a class="term" href="options.xhtml#opt-programs.firefox.profiles._name_.handlers.schemes._name_.ask"><code class="option">programs.firefox.profiles.&lt;name&gt;.handlers.schemes.&lt;name&gt;.ask</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>If true, the user is asked what they want to do with the file.
+If false, the action is taken without user intervention.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox" target="_top">
+&lt;home-manager/modules/programs/firefox&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.firefox.profiles._name_.handlers.schemes._name_.handlers"></a><a class="term" href="options.xhtml#opt-programs.firefox.profiles._name_.handlers.schemes._name_.handlers"><code class="option">programs.firefox.profiles.&lt;name&gt;.handlers.schemes.&lt;name&gt;.handlers</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>An array of handlers with the first one being the default.
+If you don’t want to have a default handler, use an empty object for the first handler.
+Only valid when action is set to 2 (Use helper app).</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox" target="_top">
+&lt;home-manager/modules/programs/firefox&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.firefox.profiles._name_.handlers.schemes._name_.handlers._.name"></a><a class="term" href="options.xhtml#opt-programs.firefox.profiles._name_.handlers.schemes._name_.handlers._.name"><code class="option">programs.firefox.profiles.&lt;name&gt;.handlers.schemes.&lt;name&gt;.handlers.*.name</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Display name of the handler.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox" target="_top">
+&lt;home-manager/modules/programs/firefox&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.firefox.profiles._name_.handlers.schemes._name_.handlers._.path"></a><a class="term" href="options.xhtml#opt-programs.firefox.profiles._name_.handlers.schemes._name_.handlers._.path"><code class="option">programs.firefox.profiles.&lt;name&gt;.handlers.schemes.&lt;name&gt;.handlers.*.path</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Path to the executable to be used.</p><p>Only one of ‘path’ or ‘uriTemplate’ should be set.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox" target="_top">
+&lt;home-manager/modules/programs/firefox&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.firefox.profiles._name_.handlers.schemes._name_.handlers._.uriTemplate"></a><a class="term" href="options.xhtml#opt-programs.firefox.profiles._name_.handlers.schemes._name_.handlers._.uriTemplate"><code class="option">programs.firefox.profiles.&lt;name&gt;.handlers.schemes.&lt;name&gt;.handlers.*.uriTemplate</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>URI for the application handler.</p><p>Only one of ‘path’ or ‘uriTemplate’ should be set.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox" target="_top">
+&lt;home-manager/modules/programs/firefox&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.firefox.profiles._name_.id"></a><a class="term" href="options.xhtml#opt-programs.firefox.profiles._name_.id"><code class="option">programs.firefox.profiles.&lt;name&gt;.id</code>
   </a>
  </span>
@@ -35209,6 +35688,485 @@ attribute set of (JSON value)</p>
 strings concatenated with “\n”</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/floorp.nix" target="_top">
+&lt;home-manager/modules/programs/floorp.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.floorp.profiles._name_.handlers"></a><a class="term" href="options.xhtml#opt-programs.floorp.profiles._name_.handlers"><code class="option">programs.floorp.profiles.&lt;name&gt;.handlers</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Declarative handlers configuration for MIME types and URL schemes.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+submodule</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/floorp.nix" target="_top">
+&lt;home-manager/modules/programs/floorp.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.floorp.profiles._name_.handlers.force"></a><a class="term" href="options.xhtml#opt-programs.floorp.profiles._name_.handlers.force"><code class="option">programs.floorp.profiles.&lt;name&gt;.handlers.force</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to force replace the existing handlers configuration.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/floorp.nix" target="_top">
+&lt;home-manager/modules/programs/floorp.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.floorp.profiles._name_.handlers.meta.maintainers"></a><a class="term" href="options.xhtml#opt-programs.floorp.profiles._name_.handlers.meta.maintainers"><code class="option">programs.floorp.profiles.&lt;name&gt;.handlers.meta.maintainers</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>List of maintainers of each module.
+This option should be defined at most once per module.</p><p>The option value is not a list of maintainers, but an attribute set that maps module file names to lists of maintainers.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of (maintainer)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[ lib.maintainers.alice lib.maintainers.bob ]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="file:///nix/store/2715qxhm1acrc11b3bvg632d8mk562n7-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/2715qxhm1acrc11b3bvg632d8mk562n7-source/modules/generic/meta-maintainers.nix
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.floorp.profiles._name_.handlers.mimeTypes"></a><a class="term" href="options.xhtml#opt-programs.floorp.profiles._name_.handlers.mimeTypes"><code class="option">programs.floorp.profiles.&lt;name&gt;.handlers.mimeTypes</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Attribute set mapping MIME types to their handler configurations.</p><p>For a configuration example, see <a class="link" href="https://github.com/mozilla-firefox/firefox/blob/c3797cdebac1316dd7168e995e3468c5a597e8d1/uriloader/exthandler/tests/unit/handlers.json"  target="_top">this file on Firefox’s source code</a>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  &quot;application/pdf&quot; = {
+    action = 2;
+    ask = false;
+    handlers = [
+      {
+        name = &quot;Okular&quot;;
+        path = &quot;${pkgs.okular}/bin/okular&quot;;
+      }
+    ];
+    extensions = [ &quot;pdf&quot; ];
+  };
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/floorp.nix" target="_top">
+&lt;home-manager/modules/programs/floorp.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.floorp.profiles._name_.handlers.mimeTypes._name_.action"></a><a class="term" href="options.xhtml#opt-programs.floorp.profiles._name_.handlers.mimeTypes._name_.action"><code class="option">programs.floorp.profiles.&lt;name&gt;.handlers.mimeTypes.&lt;name&gt;.action</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The action to take for this MIME type / URL scheme. Possible values:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>0: Save file</p></li><li class="listitem"><p>1: Always ask</p></li><li class="listitem"><p>2: Use helper app</p></li><li class="listitem"><p>3: Open in Floorp</p></li><li class="listitem"><p>4: Use system default</p></li></ul></div>
+
+<p><span class="emphasis"><em>Type:</em></span>
+one of 0, 1, 2, 3, 4</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">1
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/floorp.nix" target="_top">
+&lt;home-manager/modules/programs/floorp.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.floorp.profiles._name_.handlers.mimeTypes._name_.ask"></a><a class="term" href="options.xhtml#opt-programs.floorp.profiles._name_.handlers.mimeTypes._name_.ask"><code class="option">programs.floorp.profiles.&lt;name&gt;.handlers.mimeTypes.&lt;name&gt;.ask</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>If true, the user is asked what they want to do with the file.
+If false, the action is taken without user intervention.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/floorp.nix" target="_top">
+&lt;home-manager/modules/programs/floorp.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.floorp.profiles._name_.handlers.mimeTypes._name_.extensions"></a><a class="term" href="options.xhtml#opt-programs.floorp.profiles._name_.handlers.mimeTypes._name_.extensions"><code class="option">programs.floorp.profiles.&lt;name&gt;.handlers.mimeTypes.&lt;name&gt;.extensions</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>List of file extensions associated with this MIME type.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of string matching the pattern ^[^\.].+$</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
+  &quot;jpg&quot;
+  &quot;jpeg&quot;
+]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/floorp.nix" target="_top">
+&lt;home-manager/modules/programs/floorp.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.floorp.profiles._name_.handlers.mimeTypes._name_.handlers"></a><a class="term" href="options.xhtml#opt-programs.floorp.profiles._name_.handlers.mimeTypes._name_.handlers"><code class="option">programs.floorp.profiles.&lt;name&gt;.handlers.mimeTypes.&lt;name&gt;.handlers</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>An array of handlers with the first one being the default.
+If you don’t want to have a default handler, use an empty object for the first handler.
+Only valid when action is set to 2 (Use helper app).</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/floorp.nix" target="_top">
+&lt;home-manager/modules/programs/floorp.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.floorp.profiles._name_.handlers.mimeTypes._name_.handlers._.name"></a><a class="term" href="options.xhtml#opt-programs.floorp.profiles._name_.handlers.mimeTypes._name_.handlers._.name"><code class="option">programs.floorp.profiles.&lt;name&gt;.handlers.mimeTypes.&lt;name&gt;.handlers.*.name</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Display name of the handler.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/floorp.nix" target="_top">
+&lt;home-manager/modules/programs/floorp.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.floorp.profiles._name_.handlers.mimeTypes._name_.handlers._.path"></a><a class="term" href="options.xhtml#opt-programs.floorp.profiles._name_.handlers.mimeTypes._name_.handlers._.path"><code class="option">programs.floorp.profiles.&lt;name&gt;.handlers.mimeTypes.&lt;name&gt;.handlers.*.path</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Path to the executable to be used.</p><p>Only one of ‘path’ or ‘uriTemplate’ should be set.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/floorp.nix" target="_top">
+&lt;home-manager/modules/programs/floorp.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.floorp.profiles._name_.handlers.mimeTypes._name_.handlers._.uriTemplate"></a><a class="term" href="options.xhtml#opt-programs.floorp.profiles._name_.handlers.mimeTypes._name_.handlers._.uriTemplate"><code class="option">programs.floorp.profiles.&lt;name&gt;.handlers.mimeTypes.&lt;name&gt;.handlers.*.uriTemplate</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>URI for the application handler.</p><p>Only one of ‘path’ or ‘uriTemplate’ should be set.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/floorp.nix" target="_top">
+&lt;home-manager/modules/programs/floorp.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.floorp.profiles._name_.handlers.schemes"></a><a class="term" href="options.xhtml#opt-programs.floorp.profiles._name_.handlers.schemes"><code class="option">programs.floorp.profiles.&lt;name&gt;.handlers.schemes</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Attribute set mapping URL schemes to their handler configurations.</p><p>For a configuration example, see <a class="link" href="https://github.com/mozilla-firefox/firefox/blob/c3797cdebac1316dd7168e995e3468c5a597e8d1/uriloader/exthandler/tests/unit/handlers.json"  target="_top">this file on Firefox’s source code</a>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  mailto = {
+    action = 2;
+    ask = false;
+    handlers = [
+      {
+        name = &quot;Gmail&quot;;
+        uriTemplate = &quot;https://mail.google.com/mail/?extsrc=mailto&amp;url=%s&quot;;
+      }
+    ];
+  };
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/floorp.nix" target="_top">
+&lt;home-manager/modules/programs/floorp.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.floorp.profiles._name_.handlers.schemes._name_.action"></a><a class="term" href="options.xhtml#opt-programs.floorp.profiles._name_.handlers.schemes._name_.action"><code class="option">programs.floorp.profiles.&lt;name&gt;.handlers.schemes.&lt;name&gt;.action</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The action to take for this MIME type / URL scheme. Possible values:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>0: Save file</p></li><li class="listitem"><p>1: Always ask</p></li><li class="listitem"><p>2: Use helper app</p></li><li class="listitem"><p>3: Open in Floorp</p></li><li class="listitem"><p>4: Use system default</p></li></ul></div>
+
+<p><span class="emphasis"><em>Type:</em></span>
+one of 0, 1, 2, 3, 4</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">1
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/floorp.nix" target="_top">
+&lt;home-manager/modules/programs/floorp.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.floorp.profiles._name_.handlers.schemes._name_.ask"></a><a class="term" href="options.xhtml#opt-programs.floorp.profiles._name_.handlers.schemes._name_.ask"><code class="option">programs.floorp.profiles.&lt;name&gt;.handlers.schemes.&lt;name&gt;.ask</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>If true, the user is asked what they want to do with the file.
+If false, the action is taken without user intervention.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/floorp.nix" target="_top">
+&lt;home-manager/modules/programs/floorp.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.floorp.profiles._name_.handlers.schemes._name_.handlers"></a><a class="term" href="options.xhtml#opt-programs.floorp.profiles._name_.handlers.schemes._name_.handlers"><code class="option">programs.floorp.profiles.&lt;name&gt;.handlers.schemes.&lt;name&gt;.handlers</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>An array of handlers with the first one being the default.
+If you don’t want to have a default handler, use an empty object for the first handler.
+Only valid when action is set to 2 (Use helper app).</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/floorp.nix" target="_top">
+&lt;home-manager/modules/programs/floorp.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.floorp.profiles._name_.handlers.schemes._name_.handlers._.name"></a><a class="term" href="options.xhtml#opt-programs.floorp.profiles._name_.handlers.schemes._name_.handlers._.name"><code class="option">programs.floorp.profiles.&lt;name&gt;.handlers.schemes.&lt;name&gt;.handlers.*.name</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Display name of the handler.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/floorp.nix" target="_top">
+&lt;home-manager/modules/programs/floorp.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.floorp.profiles._name_.handlers.schemes._name_.handlers._.path"></a><a class="term" href="options.xhtml#opt-programs.floorp.profiles._name_.handlers.schemes._name_.handlers._.path"><code class="option">programs.floorp.profiles.&lt;name&gt;.handlers.schemes.&lt;name&gt;.handlers.*.path</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Path to the executable to be used.</p><p>Only one of ‘path’ or ‘uriTemplate’ should be set.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/floorp.nix" target="_top">
+&lt;home-manager/modules/programs/floorp.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.floorp.profiles._name_.handlers.schemes._name_.handlers._.uriTemplate"></a><a class="term" href="options.xhtml#opt-programs.floorp.profiles._name_.handlers.schemes._name_.handlers._.uriTemplate"><code class="option">programs.floorp.profiles.&lt;name&gt;.handlers.schemes.&lt;name&gt;.handlers.*.uriTemplate</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>URI for the application handler.</p><p>Only one of ‘path’ or ‘uriTemplate’ should be set.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -52509,6 +53467,485 @@ strings concatenated with “\n”</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.librewolf.profiles._name_.handlers"></a><a class="term" href="options.xhtml#opt-programs.librewolf.profiles._name_.handlers"><code class="option">programs.librewolf.profiles.&lt;name&gt;.handlers</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Declarative handlers configuration for MIME types and URL schemes.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+submodule</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/librewolf.nix" target="_top">
+&lt;home-manager/modules/programs/librewolf.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.librewolf.profiles._name_.handlers.force"></a><a class="term" href="options.xhtml#opt-programs.librewolf.profiles._name_.handlers.force"><code class="option">programs.librewolf.profiles.&lt;name&gt;.handlers.force</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to force replace the existing handlers configuration.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/librewolf.nix" target="_top">
+&lt;home-manager/modules/programs/librewolf.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.librewolf.profiles._name_.handlers.meta.maintainers"></a><a class="term" href="options.xhtml#opt-programs.librewolf.profiles._name_.handlers.meta.maintainers"><code class="option">programs.librewolf.profiles.&lt;name&gt;.handlers.meta.maintainers</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>List of maintainers of each module.
+This option should be defined at most once per module.</p><p>The option value is not a list of maintainers, but an attribute set that maps module file names to lists of maintainers.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of (maintainer)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[ lib.maintainers.alice lib.maintainers.bob ]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="file:///nix/store/2715qxhm1acrc11b3bvg632d8mk562n7-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/2715qxhm1acrc11b3bvg632d8mk562n7-source/modules/generic/meta-maintainers.nix
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.librewolf.profiles._name_.handlers.mimeTypes"></a><a class="term" href="options.xhtml#opt-programs.librewolf.profiles._name_.handlers.mimeTypes"><code class="option">programs.librewolf.profiles.&lt;name&gt;.handlers.mimeTypes</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Attribute set mapping MIME types to their handler configurations.</p><p>For a configuration example, see <a class="link" href="https://github.com/mozilla-firefox/firefox/blob/c3797cdebac1316dd7168e995e3468c5a597e8d1/uriloader/exthandler/tests/unit/handlers.json"  target="_top">this file on Firefox’s source code</a>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  &quot;application/pdf&quot; = {
+    action = 2;
+    ask = false;
+    handlers = [
+      {
+        name = &quot;Okular&quot;;
+        path = &quot;${pkgs.okular}/bin/okular&quot;;
+      }
+    ];
+    extensions = [ &quot;pdf&quot; ];
+  };
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/librewolf.nix" target="_top">
+&lt;home-manager/modules/programs/librewolf.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.librewolf.profiles._name_.handlers.mimeTypes._name_.action"></a><a class="term" href="options.xhtml#opt-programs.librewolf.profiles._name_.handlers.mimeTypes._name_.action"><code class="option">programs.librewolf.profiles.&lt;name&gt;.handlers.mimeTypes.&lt;name&gt;.action</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The action to take for this MIME type / URL scheme. Possible values:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>0: Save file</p></li><li class="listitem"><p>1: Always ask</p></li><li class="listitem"><p>2: Use helper app</p></li><li class="listitem"><p>3: Open in LibreWolf</p></li><li class="listitem"><p>4: Use system default</p></li></ul></div>
+
+<p><span class="emphasis"><em>Type:</em></span>
+one of 0, 1, 2, 3, 4</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">1
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/librewolf.nix" target="_top">
+&lt;home-manager/modules/programs/librewolf.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.librewolf.profiles._name_.handlers.mimeTypes._name_.ask"></a><a class="term" href="options.xhtml#opt-programs.librewolf.profiles._name_.handlers.mimeTypes._name_.ask"><code class="option">programs.librewolf.profiles.&lt;name&gt;.handlers.mimeTypes.&lt;name&gt;.ask</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>If true, the user is asked what they want to do with the file.
+If false, the action is taken without user intervention.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/librewolf.nix" target="_top">
+&lt;home-manager/modules/programs/librewolf.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.librewolf.profiles._name_.handlers.mimeTypes._name_.extensions"></a><a class="term" href="options.xhtml#opt-programs.librewolf.profiles._name_.handlers.mimeTypes._name_.extensions"><code class="option">programs.librewolf.profiles.&lt;name&gt;.handlers.mimeTypes.&lt;name&gt;.extensions</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>List of file extensions associated with this MIME type.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of string matching the pattern ^[^\.].+$</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
+  &quot;jpg&quot;
+  &quot;jpeg&quot;
+]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/librewolf.nix" target="_top">
+&lt;home-manager/modules/programs/librewolf.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.librewolf.profiles._name_.handlers.mimeTypes._name_.handlers"></a><a class="term" href="options.xhtml#opt-programs.librewolf.profiles._name_.handlers.mimeTypes._name_.handlers"><code class="option">programs.librewolf.profiles.&lt;name&gt;.handlers.mimeTypes.&lt;name&gt;.handlers</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>An array of handlers with the first one being the default.
+If you don’t want to have a default handler, use an empty object for the first handler.
+Only valid when action is set to 2 (Use helper app).</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/librewolf.nix" target="_top">
+&lt;home-manager/modules/programs/librewolf.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.librewolf.profiles._name_.handlers.mimeTypes._name_.handlers._.name"></a><a class="term" href="options.xhtml#opt-programs.librewolf.profiles._name_.handlers.mimeTypes._name_.handlers._.name"><code class="option">programs.librewolf.profiles.&lt;name&gt;.handlers.mimeTypes.&lt;name&gt;.handlers.*.name</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Display name of the handler.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/librewolf.nix" target="_top">
+&lt;home-manager/modules/programs/librewolf.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.librewolf.profiles._name_.handlers.mimeTypes._name_.handlers._.path"></a><a class="term" href="options.xhtml#opt-programs.librewolf.profiles._name_.handlers.mimeTypes._name_.handlers._.path"><code class="option">programs.librewolf.profiles.&lt;name&gt;.handlers.mimeTypes.&lt;name&gt;.handlers.*.path</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Path to the executable to be used.</p><p>Only one of ‘path’ or ‘uriTemplate’ should be set.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/librewolf.nix" target="_top">
+&lt;home-manager/modules/programs/librewolf.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.librewolf.profiles._name_.handlers.mimeTypes._name_.handlers._.uriTemplate"></a><a class="term" href="options.xhtml#opt-programs.librewolf.profiles._name_.handlers.mimeTypes._name_.handlers._.uriTemplate"><code class="option">programs.librewolf.profiles.&lt;name&gt;.handlers.mimeTypes.&lt;name&gt;.handlers.*.uriTemplate</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>URI for the application handler.</p><p>Only one of ‘path’ or ‘uriTemplate’ should be set.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/librewolf.nix" target="_top">
+&lt;home-manager/modules/programs/librewolf.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.librewolf.profiles._name_.handlers.schemes"></a><a class="term" href="options.xhtml#opt-programs.librewolf.profiles._name_.handlers.schemes"><code class="option">programs.librewolf.profiles.&lt;name&gt;.handlers.schemes</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Attribute set mapping URL schemes to their handler configurations.</p><p>For a configuration example, see <a class="link" href="https://github.com/mozilla-firefox/firefox/blob/c3797cdebac1316dd7168e995e3468c5a597e8d1/uriloader/exthandler/tests/unit/handlers.json"  target="_top">this file on Firefox’s source code</a>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  mailto = {
+    action = 2;
+    ask = false;
+    handlers = [
+      {
+        name = &quot;Gmail&quot;;
+        uriTemplate = &quot;https://mail.google.com/mail/?extsrc=mailto&amp;url=%s&quot;;
+      }
+    ];
+  };
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/librewolf.nix" target="_top">
+&lt;home-manager/modules/programs/librewolf.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.librewolf.profiles._name_.handlers.schemes._name_.action"></a><a class="term" href="options.xhtml#opt-programs.librewolf.profiles._name_.handlers.schemes._name_.action"><code class="option">programs.librewolf.profiles.&lt;name&gt;.handlers.schemes.&lt;name&gt;.action</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The action to take for this MIME type / URL scheme. Possible values:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>0: Save file</p></li><li class="listitem"><p>1: Always ask</p></li><li class="listitem"><p>2: Use helper app</p></li><li class="listitem"><p>3: Open in LibreWolf</p></li><li class="listitem"><p>4: Use system default</p></li></ul></div>
+
+<p><span class="emphasis"><em>Type:</em></span>
+one of 0, 1, 2, 3, 4</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">1
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/librewolf.nix" target="_top">
+&lt;home-manager/modules/programs/librewolf.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.librewolf.profiles._name_.handlers.schemes._name_.ask"></a><a class="term" href="options.xhtml#opt-programs.librewolf.profiles._name_.handlers.schemes._name_.ask"><code class="option">programs.librewolf.profiles.&lt;name&gt;.handlers.schemes.&lt;name&gt;.ask</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>If true, the user is asked what they want to do with the file.
+If false, the action is taken without user intervention.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/librewolf.nix" target="_top">
+&lt;home-manager/modules/programs/librewolf.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.librewolf.profiles._name_.handlers.schemes._name_.handlers"></a><a class="term" href="options.xhtml#opt-programs.librewolf.profiles._name_.handlers.schemes._name_.handlers"><code class="option">programs.librewolf.profiles.&lt;name&gt;.handlers.schemes.&lt;name&gt;.handlers</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>An array of handlers with the first one being the default.
+If you don’t want to have a default handler, use an empty object for the first handler.
+Only valid when action is set to 2 (Use helper app).</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/librewolf.nix" target="_top">
+&lt;home-manager/modules/programs/librewolf.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.librewolf.profiles._name_.handlers.schemes._name_.handlers._.name"></a><a class="term" href="options.xhtml#opt-programs.librewolf.profiles._name_.handlers.schemes._name_.handlers._.name"><code class="option">programs.librewolf.profiles.&lt;name&gt;.handlers.schemes.&lt;name&gt;.handlers.*.name</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Display name of the handler.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/librewolf.nix" target="_top">
+&lt;home-manager/modules/programs/librewolf.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.librewolf.profiles._name_.handlers.schemes._name_.handlers._.path"></a><a class="term" href="options.xhtml#opt-programs.librewolf.profiles._name_.handlers.schemes._name_.handlers._.path"><code class="option">programs.librewolf.profiles.&lt;name&gt;.handlers.schemes.&lt;name&gt;.handlers.*.path</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Path to the executable to be used.</p><p>Only one of ‘path’ or ‘uriTemplate’ should be set.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/librewolf.nix" target="_top">
+&lt;home-manager/modules/programs/librewolf.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.librewolf.profiles._name_.handlers.schemes._name_.handlers._.uriTemplate"></a><a class="term" href="options.xhtml#opt-programs.librewolf.profiles._name_.handlers.schemes._name_.handlers._.uriTemplate"><code class="option">programs.librewolf.profiles.&lt;name&gt;.handlers.schemes.&lt;name&gt;.handlers.*.uriTemplate</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>URI for the application handler.</p><p>Only one of ‘path’ or ‘uriTemplate’ should be set.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/librewolf.nix" target="_top">
+&lt;home-manager/modules/programs/librewolf.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.librewolf.profiles._name_.id"></a><a class="term" href="options.xhtml#opt-programs.librewolf.profiles._name_.id"><code class="option">programs.librewolf.profiles.&lt;name&gt;.id</code>
   </a>
  </span>
@@ -60411,6 +61848,87 @@ boolean</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.nnn.enableBashIntegration"></a><a class="term" href="options.xhtml#opt-programs.nnn.enableBashIntegration"><code class="option">programs.nnn.enableBashIntegration</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable Bash integration.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<a class="xref" href="options.xhtml#opt-home.shell.enableBashIntegration"  ><code class="option">home.shell.enableBashIntegration</code></a></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/nnn.nix" target="_top">
+&lt;home-manager/modules/programs/nnn.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.nnn.enableFishIntegration"></a><a class="term" href="options.xhtml#opt-programs.nnn.enableFishIntegration"><code class="option">programs.nnn.enableFishIntegration</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable Fish integration.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<a class="xref" href="options.xhtml#opt-home.shell.enableFishIntegration"  ><code class="option">home.shell.enableFishIntegration</code></a></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/nnn.nix" target="_top">
+&lt;home-manager/modules/programs/nnn.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.nnn.enableZshIntegration"></a><a class="term" href="options.xhtml#opt-programs.nnn.enableZshIntegration"><code class="option">programs.nnn.enableZshIntegration</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable Zsh integration.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<a class="xref" href="options.xhtml#opt-home.shell.enableZshIntegration"  ><code class="option">home.shell.enableZshIntegration</code></a></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/nnn.nix" target="_top">
+&lt;home-manager/modules/programs/nnn.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.nnn.package"></a><a class="term" href="options.xhtml#opt-programs.nnn.package"><code class="option">programs.nnn.package</code>
   </a>
  </span>
@@ -60574,6 +62092,33 @@ null or absolute path</p>
   sha256 = &quot;sha256-Hpc8YaJeAzJoEi7aJ6DntH2VLkoR6ToP6tPYn3llR7k=&quot;;
 }) + &quot;/plugins&quot;;
 
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/nnn.nix" target="_top">
+&lt;home-manager/modules/programs/nnn.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.nnn.quitcd"></a><a class="term" href="options.xhtml#opt-programs.nnn.quitcd"><code class="option">programs.nnn.quitcd</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable cd on quit.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -71556,6 +73101,89 @@ signed integer</p>
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ripgrep-all.nix" target="_top">
 &lt;home-manager/modules/programs/ripgrep-all.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.rizin.enable"></a><a class="term" href="options.xhtml#opt-programs.rizin.enable"><code class="option">programs.rizin.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable Rizin.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/rizin.nix" target="_top">
+&lt;home-manager/modules/programs/rizin.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.rizin.package"></a><a class="term" href="options.xhtml#opt-programs.rizin.package"><code class="option">programs.rizin.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The rizin package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.rizin
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/rizin.nix" target="_top">
+&lt;home-manager/modules/programs/rizin.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.rizin.extraConfig"></a><a class="term" href="options.xhtml#opt-programs.rizin.extraConfig"><code class="option">programs.rizin.extraConfig</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Run configuration written to <code class="filename">rizinrc</code>.
+See <a class="link" href="https://book.rizin.re/src/configuration/initial_scripts.html"  target="_top">https://book.rizin.re/src/configuration/initial_scripts.html</a>
+for more information.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+strings concatenated with “\n”</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&#x27;&#x27;
+  e asm.bytes=true
+  e asm.bytes.space=true
+&#x27;&#x27;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/rizin.nix" target="_top">
+&lt;home-manager/modules/programs/rizin.nix&gt;
 </a></code>
 </td></tr>
 </table>
@@ -97504,16 +99132,12 @@ package</p>
 <p>Directory to store lima files. This also sets $LIMA_HOME.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-string</p>
+null or string</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">if config.xdg.enable &amp;&amp; lib.versionAtLeast config.home.stateVersion &quot;26.05&quot; then
-  &quot;$XDG_DATA_HOME/lima&quot;
-else
-  &quot;.colima/_lima&quot;
-
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;Colima uses $COLIMA_HOME/_lima by default.&quot;
 </code></pre>
 
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">${config.xdg.configHome}/colima/_lima
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">${config.xdg.dataHome}/lima
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
