@@ -14687,8 +14687,8 @@ list of (maintainer)</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/2715qxhm1acrc11b3bvg632d8mk562n7-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/2715qxhm1acrc11b3bvg632d8mk562n7-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/wpr3cbq6kshrzggq3acdb78mm9cyfv05-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/wpr3cbq6kshrzggq3acdb78mm9cyfv05-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -19262,6 +19262,269 @@ null or boolean</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.anki.profiles"></a><a class="term" href="options.xhtml#opt-programs.anki.profiles"><code class="option">programs.anki.profiles</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Anki profiles and their settings.
+Profiles are primarily intended to be one per person, and are not recommended for splitting up your own content.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{
+  &quot;User 1&quot; = { };
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/anki" target="_top">
+&lt;home-manager/modules/programs/anki&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.anki.profiles._name_.default"></a><a class="term" href="options.xhtml#opt-programs.anki.profiles._name_.default"><code class="option">programs.anki.profiles.&lt;name&gt;.default</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Open this profile on startup.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/anki" target="_top">
+&lt;home-manager/modules/programs/anki&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.anki.profiles._name_.sync.autoSync"></a><a class="term" href="options.xhtml#opt-programs.anki.profiles._name_.sync.autoSync"><code class="option">programs.anki.profiles.&lt;name&gt;.sync.autoSync</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Automatically sync on profile open/close.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/anki" target="_top">
+&lt;home-manager/modules/programs/anki&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.anki.profiles._name_.sync.autoSyncMediaMinutes"></a><a class="term" href="options.xhtml#opt-programs.anki.profiles._name_.sync.autoSyncMediaMinutes"><code class="option">programs.anki.profiles.&lt;name&gt;.sync.autoSyncMediaMinutes</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Automatically sync media every X minutes. Set this to 0 to disable
+periodic media syncing.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or (unsigned integer, meaning &gt;=0)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">15
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/anki" target="_top">
+&lt;home-manager/modules/programs/anki&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.anki.profiles._name_.sync.keyFile"></a><a class="term" href="options.xhtml#opt-programs.anki.profiles._name_.sync.keyFile"><code class="option">programs.anki.profiles.&lt;name&gt;.sync.keyFile</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Path to a file containing the sync account sync key. This is different from
+the account password.</p><p>To get the sync key, follow these steps:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Enable this Home Manager module: <code class="literal">programs.anki.enable = true</code></p></li><li class="listitem"><p>Open Anki.</p></li><li class="listitem"><p>Navigate to the sync settings page. (Tools &gt; Preferences &gt; Syncing)</p></li><li class="listitem"><p>Log in to your AnkiWeb account.</p></li><li class="listitem"><p>Select “Yes” to the prompt about saving preferences and syncing.</p></li><li class="listitem"><p>A Home Manager warning prompt will show. Select “Show details…”.</p></li><li class="listitem"><p>Get your sync key from the message: “syncKey changed from `None` to `&lt;YOUR SYNC KEY WILL BE HERE&gt;`”</p></li></ul></div>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or absolute path</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/anki" target="_top">
+&lt;home-manager/modules/programs/anki&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.anki.profiles._name_.sync.networkTimeout"></a><a class="term" href="options.xhtml#opt-programs.anki.profiles._name_.sync.networkTimeout"><code class="option">programs.anki.profiles.&lt;name&gt;.sync.networkTimeout</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Network timeout in seconds (clamped between 30 and 99999).</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or (unsigned integer, meaning &gt;=0)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">60
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/anki" target="_top">
+&lt;home-manager/modules/programs/anki&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.anki.profiles._name_.sync.syncMedia"></a><a class="term" href="options.xhtml#opt-programs.anki.profiles._name_.sync.syncMedia"><code class="option">programs.anki.profiles.&lt;name&gt;.sync.syncMedia</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Synchronize audio and images too.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/anki" target="_top">
+&lt;home-manager/modules/programs/anki&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.anki.profiles._name_.sync.url"></a><a class="term" href="options.xhtml#opt-programs.anki.profiles._name_.sync.url"><code class="option">programs.anki.profiles.&lt;name&gt;.sync.url</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Custom sync server URL. See <a class="link" href="https://docs.ankiweb.net/sync-server.html"  target="_top">https://docs.ankiweb.net/sync-server.html</a>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;http://example.com/anki-sync/&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/anki" target="_top">
+&lt;home-manager/modules/programs/anki&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.anki.profiles._name_.sync.username"></a><a class="term" href="options.xhtml#opt-programs.anki.profiles._name_.sync.username"><code class="option">programs.anki.profiles.&lt;name&gt;.sync.username</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Sync account username.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;lovelearning@email.com&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/anki" target="_top">
+&lt;home-manager/modules/programs/anki&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.anki.profiles._name_.sync.usernameFile"></a><a class="term" href="options.xhtml#opt-programs.anki.profiles._name_.sync.usernameFile"><code class="option">programs.anki.profiles.&lt;name&gt;.sync.usernameFile</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Path to a file containing the sync account username.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or absolute path</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/anki" target="_top">
+&lt;home-manager/modules/programs/anki&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.anki.reduceMotion"></a><a class="term" href="options.xhtml#opt-programs.anki.reduceMotion"><code class="option">programs.anki.reduceMotion</code>
   </a>
  </span>
@@ -19330,218 +19593,6 @@ null or one of “anki”, “native”</p>
 </code></pre>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;native&quot;
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/anki" target="_top">
-&lt;home-manager/modules/programs/anki&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.anki.sync.autoSync"></a><a class="term" href="options.xhtml#opt-programs.anki.sync.autoSync"><code class="option">programs.anki.sync.autoSync</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Automatically sync on profile open/close.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or boolean</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/anki" target="_top">
-&lt;home-manager/modules/programs/anki&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.anki.sync.autoSyncMediaMinutes"></a><a class="term" href="options.xhtml#opt-programs.anki.sync.autoSyncMediaMinutes"><code class="option">programs.anki.sync.autoSyncMediaMinutes</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Automatically sync media every X minutes. Set this to 0 to disable
-periodic media syncing.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or (unsigned integer, meaning &gt;=0)</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">15
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/anki" target="_top">
-&lt;home-manager/modules/programs/anki&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.anki.sync.keyFile"></a><a class="term" href="options.xhtml#opt-programs.anki.sync.keyFile"><code class="option">programs.anki.sync.keyFile</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Path to a file containing the sync account sync key. This is different from
-the account password.</p><p>To get the sync key, follow these steps:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Enable this Home Manager module: <code class="literal">programs.anki.enable = true</code></p></li><li class="listitem"><p>Open Anki.</p></li><li class="listitem"><p>Navigate to the sync settings page. (Tools &gt; Preferences &gt; Syncing)</p></li><li class="listitem"><p>Log in to your AnkiWeb account.</p></li><li class="listitem"><p>Select “Yes” to the prompt about saving preferences and syncing.</p></li><li class="listitem"><p>A Home Manager warning prompt will show. Select “Show details…”.</p></li><li class="listitem"><p>Get your sync key from the message: “syncKey changed from `None` to `&lt;YOUR SYNC KEY WILL BE HERE&gt;`”</p></li></ul></div>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or absolute path</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/anki" target="_top">
-&lt;home-manager/modules/programs/anki&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.anki.sync.networkTimeout"></a><a class="term" href="options.xhtml#opt-programs.anki.sync.networkTimeout"><code class="option">programs.anki.sync.networkTimeout</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Network timeout in seconds.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or (unsigned integer, meaning &gt;=0)</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">60
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/anki" target="_top">
-&lt;home-manager/modules/programs/anki&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.anki.sync.syncMedia"></a><a class="term" href="options.xhtml#opt-programs.anki.sync.syncMedia"><code class="option">programs.anki.sync.syncMedia</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Synchronize audio and images too.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or boolean</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/anki" target="_top">
-&lt;home-manager/modules/programs/anki&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.anki.sync.url"></a><a class="term" href="options.xhtml#opt-programs.anki.sync.url"><code class="option">programs.anki.sync.url</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Custom sync server URL. See <a class="link" href="https://docs.ankiweb.net/sync-server.html"  target="_top">https://docs.ankiweb.net/sync-server.html</a>.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or string</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;http://example.com/anki-sync/&quot;
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/anki" target="_top">
-&lt;home-manager/modules/programs/anki&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.anki.sync.username"></a><a class="term" href="options.xhtml#opt-programs.anki.sync.username"><code class="option">programs.anki.sync.username</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Sync account username.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or string</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;lovelearning@email.com&quot;
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/anki" target="_top">
-&lt;home-manager/modules/programs/anki&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.anki.sync.usernameFile"></a><a class="term" href="options.xhtml#opt-programs.anki.sync.usernameFile"><code class="option">programs.anki.sync.usernameFile</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Path to a file containing the sync account username.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or absolute path</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -26981,6 +27032,44 @@ null or strings concatenated with “\n”</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.claude-code.outputStyles"></a><a class="term" href="options.xhtml#opt-programs.claude-code.outputStyles"><code class="option">programs.claude-code.outputStyles</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Custom output styles for Claude Code.
+The attribute name becomes the base of the output style filename.
+The value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string</p></li><li class="listitem"><p>A path to a file
+In both cases, the contents will be written to .claude/output-styles/&lt;name&gt;.md</p></li></ul></div>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (strings concatenated with “\n” or absolute path)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  concise = ./output-styles/concise.md;
+  detailed = &#x27;&#x27;
+    # Detailed Output Style
+
+    Contents will be used verbatim for the detailed output format.
+  &#x27;&#x27;;
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/claude-code.nix" target="_top">
+&lt;home-manager/modules/programs/claude-code.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.claude-code.rules"></a><a class="term" href="options.xhtml#opt-programs.claude-code.rules"><code class="option">programs.claude-code.rules</code>
   </a>
  </span>
@@ -28790,7 +28879,7 @@ attribute set of (string or signed integer or boolean)</p>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
   color = &quot;dark&quot;;
-  sort-path = true;
+  sort-paths = true;
   tab-width = 8;
 }
 </code></pre>
@@ -31908,8 +31997,8 @@ list of (maintainer)</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/2715qxhm1acrc11b3bvg632d8mk562n7-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/2715qxhm1acrc11b3bvg632d8mk562n7-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/wpr3cbq6kshrzggq3acdb78mm9cyfv05-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/wpr3cbq6kshrzggq3acdb78mm9cyfv05-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -32524,8 +32613,8 @@ list of (maintainer)</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/2715qxhm1acrc11b3bvg632d8mk562n7-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/2715qxhm1acrc11b3bvg632d8mk562n7-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/wpr3cbq6kshrzggq3acdb78mm9cyfv05-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/wpr3cbq6kshrzggq3acdb78mm9cyfv05-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -33218,8 +33307,8 @@ list of (maintainer)</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/2715qxhm1acrc11b3bvg632d8mk562n7-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/2715qxhm1acrc11b3bvg632d8mk562n7-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/wpr3cbq6kshrzggq3acdb78mm9cyfv05-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/wpr3cbq6kshrzggq3acdb78mm9cyfv05-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -35153,8 +35242,8 @@ list of (maintainer)</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/2715qxhm1acrc11b3bvg632d8mk562n7-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/2715qxhm1acrc11b3bvg632d8mk562n7-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/wpr3cbq6kshrzggq3acdb78mm9cyfv05-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/wpr3cbq6kshrzggq3acdb78mm9cyfv05-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -35769,8 +35858,8 @@ list of (maintainer)</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/2715qxhm1acrc11b3bvg632d8mk562n7-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/2715qxhm1acrc11b3bvg632d8mk562n7-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/wpr3cbq6kshrzggq3acdb78mm9cyfv05-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/wpr3cbq6kshrzggq3acdb78mm9cyfv05-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -36463,8 +36552,8 @@ list of (maintainer)</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/2715qxhm1acrc11b3bvg632d8mk562n7-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/2715qxhm1acrc11b3bvg632d8mk562n7-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/wpr3cbq6kshrzggq3acdb78mm9cyfv05-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/wpr3cbq6kshrzggq3acdb78mm9cyfv05-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -52919,8 +53008,8 @@ list of (maintainer)</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/2715qxhm1acrc11b3bvg632d8mk562n7-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/2715qxhm1acrc11b3bvg632d8mk562n7-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/wpr3cbq6kshrzggq3acdb78mm9cyfv05-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/wpr3cbq6kshrzggq3acdb78mm9cyfv05-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -53535,8 +53624,8 @@ list of (maintainer)</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/2715qxhm1acrc11b3bvg632d8mk562n7-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/2715qxhm1acrc11b3bvg632d8mk562n7-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/wpr3cbq6kshrzggq3acdb78mm9cyfv05-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/wpr3cbq6kshrzggq3acdb78mm9cyfv05-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -54229,8 +54318,8 @@ list of (maintainer)</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/2715qxhm1acrc11b3bvg632d8mk562n7-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/2715qxhm1acrc11b3bvg632d8mk562n7-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/wpr3cbq6kshrzggq3acdb78mm9cyfv05-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/wpr3cbq6kshrzggq3acdb78mm9cyfv05-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -56987,7 +57076,6 @@ TOML value</p>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
   active_model = &quot;devstral-latest&quot;;
-  vim_keybindings = false;
   tool_paths = [];
 
   providers = [
@@ -57374,6 +57462,39 @@ strings concatenated with “\n”</p>
   #           script-binding uosc/video   #! Video tracks
   # additional comments
 &#x27;&#x27;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mpv.nix" target="_top">
+&lt;home-manager/modules/programs/mpv.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.mpv.extraMakeWrapperArgs"></a><a class="term" href="options.xhtml#opt-programs.mpv.extraMakeWrapperArgs"><code class="option">programs.mpv.extraMakeWrapperArgs</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>List of scripts to use with mpv.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
+  &quot;--prefix&quot;
+  &quot;LD_LIBRARY_PATH&quot;
+  &quot;:&quot;
+  (lib.makeLibraryPath [ pkgs.libaacs pkgs.libbluray ])
+]
+
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -73268,7 +73389,7 @@ null or package</p>
  </span>
 </dt>
 <dd>
-<p>Run configuration written to <code class="filename">rizinrc</code>.
+<p>Extra run configuration written to <code class="filename">rizinrc</code>.
 See <a class="link" href="https://book.rizin.re/src/configuration/initial_scripts.html"  target="_top">https://book.rizin.re/src/configuration/initial_scripts.html</a>
 for more information.</p>
 
@@ -73281,7 +73402,41 @@ strings concatenated with “\n”</p>
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&#x27;&#x27;
   e asm.bytes=true
   e asm.bytes.space=true
+  b 0x100
 &#x27;&#x27;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/rizin.nix" target="_top">
+&lt;home-manager/modules/programs/rizin.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.rizin.settings"></a><a class="term" href="options.xhtml#opt-programs.rizin.settings"><code class="option">programs.rizin.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Set of runtime configuration values written to the initial runcommands file.
+See <a class="link" href="https://book.rizin.re/src/configuration/initial_scripts.html"  target="_top">https://book.rizin.re/src/configuration/initial_scripts.html</a>
+for more information and use <a class="xref" href="options.xhtml#opt-programs.rizin.extraConfig"  ><code class="option">programs.rizin.extraConfig</code></a> to
+manually add commands.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (string or signed integer or boolean or floating point number)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  &quot;asm.bytes&quot; = true;
+  &quot;asm.bytes.space&quot; = true;
+}
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -79784,6 +79939,35 @@ string</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.starship.presets"></a><a class="term" href="options.xhtml#opt-programs.starship.presets"><code class="option">programs.starship.presets</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Preset files to be merged with settings in order.</p><p>See <a class="link" href="https://starship.rs/presets/"  target="_top">https://starship.rs/presets/</a> for the full list of available presets.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
+  &quot;nerd-font-symbols&quot;
+]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/starship.nix" target="_top">
+&lt;home-manager/modules/programs/starship.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.starship.settings"></a><a class="term" href="options.xhtml#opt-programs.starship.settings"><code class="option">programs.starship.settings</code>
   </a>
  </span>
@@ -83424,8 +83608,8 @@ list of (maintainer)</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/2715qxhm1acrc11b3bvg632d8mk562n7-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/2715qxhm1acrc11b3bvg632d8mk562n7-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/wpr3cbq6kshrzggq3acdb78mm9cyfv05-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/wpr3cbq6kshrzggq3acdb78mm9cyfv05-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -132245,12 +132429,12 @@ one of “on”, “off”, “no_gaps”</p>
 on workspace with a single container.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-boolean</p>
+boolean or one of “on”, “off”, “inverse_outer”</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;off&quot;
 </code></pre>
 
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;on&quot;
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -139911,12 +140095,12 @@ one of “on”, “off”, “no_gaps”</p>
 on workspace with a single container.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-boolean</p>
+boolean or one of “on”, “off”, “inverse_outer”</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;off&quot;
 </code></pre>
 
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;on&quot;
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
