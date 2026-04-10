@@ -3580,6 +3580,204 @@ string</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-accounts.email.accounts._name_.ews"></a><a class="term" href="options.xhtml#opt-accounts.email.accounts._name_.ews"><code class="option">accounts.email.accounts.&lt;name&gt;.ews</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The EWS configuration to use for this account.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/accounts/email.nix" target="_top">
+&lt;home-manager/modules/accounts/email.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-accounts.email.accounts._name_.ews.authentication"></a><a class="term" href="options.xhtml#opt-accounts.email.accounts._name_.ews.authentication"><code class="option">accounts.email.accounts.&lt;name&gt;.ews.authentication</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The authentication mechanism.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string or one of “anonymous”, “apop”, “clear”, “cram_md5”, “digest_md5”, “gssapi”, “login”, “ntlm”, “plain”, “xoauth2”</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;plain&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/accounts/email.nix" target="_top">
+&lt;home-manager/modules/accounts/email.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-accounts.email.accounts._name_.ews.host"></a><a class="term" href="options.xhtml#opt-accounts.email.accounts._name_.ews.host"><code class="option">accounts.email.accounts.&lt;name&gt;.ews.host</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Hostname of EWS server.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+string</p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;ews.example.org&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/accounts/email.nix" target="_top">
+&lt;home-manager/modules/accounts/email.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-accounts.email.accounts._name_.ews.serviceDescriptionURL"></a><a class="term" href="options.xhtml#opt-accounts.email.accounts._name_.ews.serviceDescriptionURL"><code class="option">accounts.email.accounts.&lt;name&gt;.ews.serviceDescriptionURL</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>URL to EWS service description.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+string</p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;https://ews.example.org/ews/exchange.asmx&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/accounts/email.nix" target="_top">
+&lt;home-manager/modules/accounts/email.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-accounts.email.accounts._name_.ews.tls"></a><a class="term" href="options.xhtml#opt-accounts.email.accounts._name_.ews.tls"><code class="option">accounts.email.accounts.&lt;name&gt;.ews.tls</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Configuration for secure connections.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+submodule</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/accounts/email.nix" target="_top">
+&lt;home-manager/modules/accounts/email.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-accounts.email.accounts._name_.ews.tls.enable"></a><a class="term" href="options.xhtml#opt-accounts.email.accounts._name_.ews.tls.enable"><code class="option">accounts.email.accounts.&lt;name&gt;.ews.tls.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable TLS/SSL.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/accounts/email.nix" target="_top">
+&lt;home-manager/modules/accounts/email.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-accounts.email.accounts._name_.ews.tls.certificatesFile"></a><a class="term" href="options.xhtml#opt-accounts.email.accounts._name_.ews.tls.certificatesFile"><code class="option">accounts.email.accounts.&lt;name&gt;.ews.tls.certificatesFile</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Path to file containing certificate authorities that should
+be used to validate the connection authenticity. If
+<code class="literal">null</code> then the system default is used.
+Note, if set then the system default may still be accepted.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or absolute path</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;config.accounts.email.certificatesFile&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/accounts/email.nix" target="_top">
+&lt;home-manager/modules/accounts/email.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-accounts.email.accounts._name_.ews.tls.useStartTls"></a><a class="term" href="options.xhtml#opt-accounts.email.accounts._name_.ews.tls.useStartTls"><code class="option">accounts.email.accounts.&lt;name&gt;.ews.tls.useStartTls</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to use STARTTLS.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/accounts/email.nix" target="_top">
+&lt;home-manager/modules/accounts/email.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-accounts.email.accounts._name_.flavor"></a><a class="term" href="options.xhtml#opt-accounts.email.accounts._name_.flavor"><code class="option">accounts.email.accounts.&lt;name&gt;.flavor</code>
   </a>
  </span>
@@ -38837,6 +39035,35 @@ boolean</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.gemini-cli.enableMcpIntegration"></a><a class="term" href="options.xhtml#opt-programs.gemini-cli.enableMcpIntegration"><code class="option">programs.gemini-cli.enableMcpIntegration</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to integrate the MCP servers config from
+<code class="option">programs.mcp.servers</code> into
+<code class="option">programs.gemini-cli.settings.mcpServers</code>.</p><p>Note: Any servers already present in
+<code class="option">programs.gemini-cli.settings.mcpServers</code>
+is not overridden by servers present under the same
+name in <code class="option">programs.mcp.servers</code></p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gemini-cli.nix" target="_top">
+&lt;home-manager/modules/programs/gemini-cli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.gemini-cli.package"></a><a class="term" href="options.xhtml#opt-programs.gemini-cli.package"><code class="option">programs.gemini-cli.package</code>
   </a>
  </span>
@@ -39110,6 +39337,60 @@ JSON value</p>
     theme = &quot;Default&quot;;
   };
 }
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gemini-cli.nix" target="_top">
+&lt;home-manager/modules/programs/gemini-cli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.gemini-cli.skills"></a><a class="term" href="options.xhtml#opt-programs.gemini-cli.skills"><code class="option">programs.gemini-cli.skills</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>An attribute set of skill files to create in <code class="literal">~/.gemini/skills</code>.
+The attribute name becomes the directory name.
+The value is either inline content or a path to a file or directory.
+If the path points to a directory, all files under that directory are symlinked to <code class="literal">~/.gemini/skills/&lt;attrname&gt;/</code>.
+If the path points to a file, that file is symlinked to <code class="literal">~/.gemini/skills/&lt;attrname&gt;/SKILL.md</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (strings concatenated with “\n” or absolute path)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  xlsx = ./skills/xlsx/SKILL.md;
+  data-analysis = ./skills/data-analysis;
+  pdf-processing = &#x27;&#x27;
+    ---
+    name: pdf-processing
+    description: Extract text and tables from PDF files, fill forms, merge documents. Use when working with PDF files or when the user mentions PDFs, forms, or document extraction.
+    ---
+
+    # PDF Processing
+
+    ## Quick start
+
+    Use pdfplumber to extract text from PDFs:
+
+    ```python
+    import pdfplumber
+
+    with pdfplumber.open(&quot;document.pdf&quot;) as pdf:
+        text = pdf.pages[0].extract_text()
+    ```
+  &#x27;&#x27;;
+}
+
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -63342,7 +63623,8 @@ null or strings concatenated with “\n”</p>
 <p><span class="emphasis"><em>Type:</em></span>
 one of “lua”, “viml”, “teal”, “fennel” or string</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;viml&quot;
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">if lib.versionAtLeast config.home.stateVersion &quot;26.05&quot; then &quot;lua&quot; else &quot;viml&quot;
+
 </code></pre>
 </dd>
 <dt>
@@ -64286,9 +64568,8 @@ null or package</p>
 the configuration settings in this module, as nheko writes the access
 token to <code class="filename">$XDG_CONFIG_HOME/nheko/nheko.conf</code> the
 first time we sign in, and we need that data into these settings for the
-correct functionality of the application.</p><p>This a temporary inconvenience, however, as nheko has plans to move the
-authentication stuff into the local database they currently use. Once
-this happens, this will no longer be an issue.</p>
+correct functionality of the application.</p><p>This a temporary inconvenience, however, as nheko has plans to <a class="link" href="https://github.com/Nheko-Reborn/nheko/issues/1591"  target="_top">move the
+authentication stuff into the secret storage</a>.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 attribute set of section of an INI file (attrs of INI atom (null, bool, int, float or string))</p>
@@ -64320,136 +64601,6 @@ attribute set of section of an INI file (attrs of INI atom (null, bool, int, flo
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/nheko.nix" target="_top">
 &lt;home-manager/modules/programs/nheko.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.niriswitcher.enable"></a><a class="term" href="options.xhtml#opt-programs.niriswitcher.enable"><code class="option">programs.niriswitcher.enable</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Whether to enable niriswitcher, an application switcher for niri.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-boolean</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/niriswitcher.nix" target="_top">
-&lt;home-manager/modules/programs/niriswitcher.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.niriswitcher.package"></a><a class="term" href="options.xhtml#opt-programs.niriswitcher.package"><code class="option">programs.niriswitcher.package</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>The niriswitcher package to use.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or package</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.niriswitcher
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/niriswitcher.nix" target="_top">
-&lt;home-manager/modules/programs/niriswitcher.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.niriswitcher.settings"></a><a class="term" href="options.xhtml#opt-programs.niriswitcher.settings"><code class="option">programs.niriswitcher.settings</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>niriswitcher configuration.
-For available settings see <a class="link" href="https://github.com/isaksamsten/niriswitcher/?tab=readme-ov-file#options"  target="_top">https://github.com/isaksamsten/niriswitcher/?tab=readme-ov-file#options</a>.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or TOML value</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
-  keys = {
-    modifier = &quot;Super&quot;;
-    switch = {
-      next = &quot;Tab&quot;;
-      prev = &quot;Shift+Tab&quot;;
-    };
-  };
-  center_on_focus = true;
-  appearance = {
-    system_theme = &quot;dark&quot;;
-    icon_size = 64;
-  };
-}
-
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/niriswitcher.nix" target="_top">
-&lt;home-manager/modules/programs/niriswitcher.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.niriswitcher.style"></a><a class="term" href="options.xhtml#opt-programs.niriswitcher.style"><code class="option">programs.niriswitcher.style</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>CSS style of the switcher.
-<a class="link" href="https://github.com/isaksamsten/niriswitcher/?tab=readme-ov-file#themes"  target="_top">https://github.com/isaksamsten/niriswitcher/?tab=readme-ov-file#themes</a>
-for the documentation.</p><p>If the value is set to a path literal, then the path will be used as the CSS file.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or absolute path or strings concatenated with “\n”</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&#x27;&#x27;
-  .application-name {
-    opacity: 1;
-    color: rgba(255, 255, 255, 0.6);
-  }
-  .application.selected .application-name {
-    color: rgba(255, 255, 255, 1);
-  }
-&#x27;&#x27;
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/niriswitcher.nix" target="_top">
-&lt;home-manager/modules/programs/niriswitcher.nix&gt;
 </a></code>
 </td></tr>
 </table>
@@ -104788,6 +104939,49 @@ attribute set of (absolute path or strings concatenated with “\n”)</p>
   &#x27;&#x27;;
   my-python-script = pkgs.writers.writePython3 &quot;my-python-script&quot; { } &#x27;&#x27;
     print(&#x27;Do something!&#x27;)
+  &#x27;&#x27;;
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/darkman.nix" target="_top">
+&lt;home-manager/modules/services/darkman.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.darkman.scripts"></a><a class="term" href="options.xhtml#opt-services.darkman.scripts"><code class="option">services.darkman.scripts</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Scripts to run when switching modes, placed in
+<code class="filename">$XDG_DATA_HOME/darkman/</code>. Each script receives the new mode
+(<code class="literal">dark</code> or <code class="literal">light</code>) as its first argument, allowing a single script
+to handle both modes.</p><p>Multiline strings are interpreted as Bash shell scripts and a shebang
+is not required.</p><p>These scripts take precedence over legacy scripts of the same name in
+<code class="option">darkModeScripts</code> and <code class="option">lightModeScripts</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (absolute path or strings concatenated with “\n”)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  gtk-theme = &#x27;&#x27;
+    if [ &quot;$1&quot; = &quot;dark&quot; ]; then
+      ${pkgs.dconf}/bin/dconf write \
+          /org/gnome/desktop/interface/color-scheme &quot;&#x27;prefer-dark&#x27;&quot;
+    else
+      ${pkgs.dconf}/bin/dconf write \
+          /org/gnome/desktop/interface/color-scheme &quot;&#x27;prefer-light&#x27;&quot;
+    fi
   &#x27;&#x27;;
 }
 
